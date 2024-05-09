@@ -13,8 +13,8 @@ export const menuRoutes: INavigationRoute[] = [
     icon: <QuestionAnswer />,
   },
   {
-    route: '/membre',
-    label: 'Membre',
+    route: '/membres',
+    label: 'Membres',
     icon: <CardMembership />,
   },
 ]

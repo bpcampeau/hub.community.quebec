@@ -6,7 +6,10 @@ import '@fontsource/roboto/700.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { MaterialThemeProvider, MainMenuProvider } from '@/providers'
+import { MaterialThemeProvider } from '@/providers'
+import { MenuNavigation } from '@/components'
+import { menuRoutes } from '@/definition'
+import { NavigationProvider } from '@/providers/NavigationProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,7 +28,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <div id="contenu" className="container mx-auto">
           <MaterialThemeProvider>
-            <MainMenuProvider>{children}</MainMenuProvider>
+            <div className="grid grid-cols-12">
+              <div className="border-r-2 border-violet-950 col-span-2 h-screen">
+                <NavigationProvider />
+              </div>
+              <div className="col-span-10">{children}</div>
+            </div>
           </MaterialThemeProvider>
         </div>
       </body>

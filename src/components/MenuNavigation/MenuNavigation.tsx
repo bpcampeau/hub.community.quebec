@@ -14,7 +14,7 @@ export const MenuNavigation = (props: MenuNavigationProps) => {
   return (
     <List>
       {menuItems.map((route) => (
-        <ListItem>
+        <ListItem key={route.route}>
           <ListItemButton onClick={() => router.push(route.route)}>
             {route.icon && <ListItemIcon>{route.icon}</ListItemIcon>}
             <ListItemText primary={route.label} />

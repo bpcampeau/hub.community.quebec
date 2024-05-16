@@ -28,7 +28,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div id="contenu" className="container mx-auto">
           <MaterialThemeProvider>
-            <div className="grid grid-cols-12">
+            <div className="grid grid-cols-12 gap-x-4">
               <div className="border-r-2 border-violet-950 col-span-2 h-screen">
                 <NavigationProvider />
               </div>

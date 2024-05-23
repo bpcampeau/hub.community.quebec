@@ -1,7 +1,6 @@
 'use Client'
 
-import { MemberList } from '@/components/MemberList/MemberList'
-import { getQuebecUsers } from '@/services/twitch/getQuebecUsers/getQuebecUsers'
+import { getTeam } from '@/services'
 import { Box } from '@mui/material'
 import { useEffect, useState } from 'react'
 
@@ -9,7 +8,7 @@ export const Membres = async () => {
   const [members, setMembers] = useState({})
 
   useEffect(() => {
-    getQuebecUsers()
+    getTeam('teamqc')
   })
 
   return (

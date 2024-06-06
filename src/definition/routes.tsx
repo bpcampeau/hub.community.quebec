@@ -4,7 +4,7 @@ import { INavigationRoute } from './types'
 export const menuRoutes: INavigationRoute[] = [
   {
     route: '/',
-    label: 'Acceuil',
+    label: 'Accueil',
     icon: <Home />,
   },
   {

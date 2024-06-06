@@ -4,3 +4,9 @@ export interface Member {
   channelDescription: string
   channelURL: string
 }
+
+export interface TeamMember {
+  user_id: string
+  user_name: string
+  user_login: string
+}

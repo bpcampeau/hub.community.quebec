@@ -22,5 +22,5 @@ export const getTeamMembers = async (teamName: string) => {
   //@ts-ignore
   const team = await getTeam(teamName)
 
-  return team.users.slice(0, 100)
+  return team.users as TeamMember[]
 }

@@ -1,24 +1,30 @@
+'use client'
+
 import { MemberList } from '@/components/MemberList/MemberList'
-import { TeamMember } from '@/definition'
+import { Member } from '@/definition'
 import { getTeamMembers } from '@/services'
+import { getUsers } from '@/services/twitch/getUser'
 import { Box } from '@mui/material'
-import { useEffect, useState } from 'react'
 
-export const Membres = () => {
-  const [members, setMembers] = useState<TeamMember[]>([])
-
+export const Membres = async () => {
   const getMemberList = async () => {
-    return (await getTeamMembers('teamqc')) as TeamMember[]
-  }
+    const team = await getTeamMembers('teamqc')
 
-  useEffect(() => {
-    console.log(getMemberList())
-  }, [])
+    const page1 = team.slice(0, 10)
+
+    const membersIds = page1.map((teamMember) => teamMember.user_id)
+
+    const members = (await getUsers({ userId: membersIds })) as Member[]
+
+    return members
+  }
 
   return (
     <>
       <h1 className="text-2xl font-bold">Membres</h1>
-      <Box>{`${members}`}</Box>
+      <Box>
+        <MemberList members={await getMemberList()} />
+      </Box>
     </>
   )
 }

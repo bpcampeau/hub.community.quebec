@@ -21,7 +21,7 @@ export const Membres = async () => {
 
   return (
     <>
-      <h1 className="text-2xl font-bold">Membres</h1>
+      <h1 className="text-4xl capitalize font-bold mb-4">Nos Membres</h1>
       <Box>
         <MemberList members={await getMemberList()} />
       </Box>

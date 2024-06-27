@@ -8,7 +8,6 @@ export const getTwitchToken = async () => {
       grant_type: 'client_credentials',
     })
     .then((response) => {
-      console.log(response)
       return response.data.access_token
     })
     .catch((e) => {

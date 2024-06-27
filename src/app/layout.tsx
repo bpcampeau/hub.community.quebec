@@ -10,6 +10,7 @@ import { MaterialThemeProvider } from '@/providers'
 import { MenuNavigation } from '@/components'
 import { menuRoutes } from '@/definition'
 import { NavigationProvider } from '@/providers/NavigationProvider'
+import { SiteHeader } from '@/components/SiteHeader'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,18 +26,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div id="contenu" className="container mx-auto">
-          <MaterialThemeProvider>
+      <MaterialThemeProvider>
+        <body className={inter.className}>
+          <SiteHeader />
+          <div id="contenu" className="container mx-auto">
             <div className="grid grid-cols-12 gap-x-4">
               <div className="border-r-2 border-violet-950 col-span-2 h-screen">
                 <NavigationProvider />
               </div>
-              <div className="col-span-10">{children}</div>
+              <div className="col-span-10 pt-6">{children}</div>
             </div>
-          </MaterialThemeProvider>
-        </div>
-      </body>
+          </div>
+        </body>
+      </MaterialThemeProvider>
     </html>
   )
 }

@@ -1,7 +1,7 @@
 import { MemberList } from '@/components/MemberList'
 import { MemberPagination } from '@/components/MemberPagination/MemberPagination'
 import { getMembers } from '@/services'
-import { Box } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import { headers } from 'next/headers'
 
 export default async function Page() {
@@ -15,8 +15,13 @@ export default async function Page() {
     <>
       <h1 className="text-4xl capitalize font-bold mb-4">Nos Membres</h1>
       <Box>
+        <Stack alignItems="center">
+          <MemberPagination defaultPage={currentPage} className="self-center" count={memberList.totalPage} />
+        </Stack>
         <MemberList members={memberList.members} />
-        <MemberPagination count={memberList.totalPage} />
+        <Stack alignItems="center">
+          <MemberPagination defaultPage={currentPage} className="self-center" count={memberList.totalPage} />
+        </Stack>
       </Box>
     </>
   )

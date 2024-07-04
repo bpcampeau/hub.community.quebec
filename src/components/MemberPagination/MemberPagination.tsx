@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation'
 interface IMemberPaginationProps {
   count: number
   onPageChange?: VoidFunction
+  className?: string
+  defaultPage?: number
 }
 
 export const MemberPagination = (props: IMemberPaginationProps) => {
@@ -24,6 +26,8 @@ export const MemberPagination = (props: IMemberPaginationProps) => {
       shape="rounded"
       size="large"
       count={props.count}
+      className={props.className}
+      defaultPage={props.defaultPage}
     />
   )
 }

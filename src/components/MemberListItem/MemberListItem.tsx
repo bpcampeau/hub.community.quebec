@@ -8,22 +8,17 @@ interface MemberListItemProps {
 }
 
 export const MemberListItem = (props: MemberListItemProps) => {
-  const { display_name, profile_image_url, description, broadcaster_type } = props.member
+  const { name, description, profile_image, type } = props.member
   const { className } = props
 
-  const channelURL = `https://twitch.tv/${display_name}`
+  const channelURL = `https://twitch.tv/${name}`
 
   return (
     <ListItem className={`grid grid-cols-12 items-start ${className}`}>
-      <Avatar
-        className="col-span-2 self-center"
-        sx={{ width: 80, height: 80 }}
-        alt={display_name}
-        src={profile_image_url}
-      />
+      <Avatar className="col-span-2 self-center" sx={{ width: 80, height: 80 }} alt={name} src={profile_image} />
       <div className="col-span-9">
         <h2 className=" text-xl font-bold mb-2">
-          {display_name} <MemberTypeBadge className="ml-1" memberType={broadcaster_type} />
+          {name} {type !== '' && <MemberTypeBadge className="ml-1" memberType={type} />}
         </h2>
         <p>{description}</p>
       </div>

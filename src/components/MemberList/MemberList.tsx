@@ -6,7 +6,7 @@ export interface IMemberListProps {
   members: Member[]
 }
 
-export const MemberList = async (props: IMemberListProps) => {
+export const MemberList = (props: IMemberListProps) => {
   const { members } = props
 
   return (

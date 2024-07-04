@@ -1,9 +1,9 @@
 export interface Member {
-  broadcaster_type: string
-  description: string
-  display_name: string
   id: string
-  profile_image_url: string
+  name: string
+  type: string
+  description: string
+  profile_image: string
 }
 
 export interface TeamMember {
